@@ -15,6 +15,30 @@ function readSiteConfig() {
 	return _cachedContent;
 }
 
+function extractObjectBlock(content, objectName) {
+	const startMatch = content.match(new RegExp(`${objectName}:\\s*\\{`));
+	if (!startMatch || startMatch.index === undefined) {
+		return null;
+	}
+
+	const blockStart = startMatch.index + startMatch[0].length - 1;
+	let depth = 0;
+
+	for (let i = blockStart; i < content.length; i++) {
+		const char = content[i];
+		if (char === "{") {
+			depth++;
+		} else if (char === "}") {
+			depth--;
+			if (depth === 0) {
+				return content.slice(blockStart + 1, i);
+			}
+		}
+	}
+
+	return null;
+}
+
 /**
  * 提取语言设置
  */
@@ -29,14 +53,11 @@ export function getLang() {
  */
 export function getFontConfigs() {
 	const content = readSiteConfig();
-
-	const fontConfigMatch = content.match(/font:\s*\{([\s\S]*?)\n\t\},/);
-	if (!fontConfigMatch) {
+	const fontConfigStr = extractObjectBlock(content, "font");
+	if (!fontConfigStr) {
 		console.log("⚠ Font config not found, using default settings");
 		return [];
 	}
-
-	const fontConfigStr = fontConfigMatch[1];
 	const fonts = [];
 	const fontTypes = ["asciiFont", "cjkFont"];
 
