@@ -13,27 +13,17 @@ export const profileConfig: ProfileConfig = {
     {
       name: "Bilibili",
       icon: "fa7-brands:bilibili",
-      url: "https://space.bilibili.com/701864046",
+      url: "https://space.bilibili.com/32883655",
     },
     {
-      name: "Gitee",
-      icon: "mdi:git",
-      url: "https://gitee.com/matsuzakayuki",
+      name: "Twitter",
+      icon: "mdi:twitter",
+      url: "https://x.com/Yazawa_Sunrise",
     },
     {
       name: "GitHub",
       icon: "fa7-brands:github",
       url: "https://github.com/matsuzaka-yuki",
-    },
-    {
-      name: "Codeberg",
-      icon: "simple-icons:codeberg",
-      url: "https://codeberg.org",
-    },
-    {
-      name: "Discord",
-      icon: "fa7-brands:discord",
-      url: "https://discord.gg/MqW6TcQtVM",
     },
   ],
 };
