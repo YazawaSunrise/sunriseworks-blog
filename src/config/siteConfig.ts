@@ -4,8 +4,8 @@ import type { SiteConfig } from "../types/config";
 const SITE_LANG = "zh_CN"; // 语言代码，例如：'en', 'zh_CN', 'ja' 等。
 
 export const siteConfig: SiteConfig = {
-  title: "Mizuki",
-  subtitle: "One demo website",
+  title: "三癞子的博客",
+  subtitle: "SUNRISE WORKS",
   siteURL: "https://mizuki.mysqil.com/", // 请替换为你的站点URL，以斜杠结尾
   siteStartDate: "2026-06-10", // 站点开始运行日期，用于站点统计组件计算运行天数
 
@@ -35,9 +35,9 @@ export const siteConfig: SiteConfig = {
     // 顶栏标题文本
     text: "三癞子的博客",
     // 顶栏标题图标路径，默认使用 public/assets/home/home.webp
-    icon: "assets/home/home.webp",
+    icon: "assets/home/1024.webp",
     // 网站Logo图片路径
-    logo: "assets/home/default-logo.webp",
+    logo: "assets/home/SUNRISEWORKS.webp",
   },
 
   // 页面自动缩放配置
@@ -182,12 +182,10 @@ export const siteConfig: SiteConfig = {
   showCoverInContent: true, // 在文章内容页显示文章封面
   generateOgImages: false, // 启用生成OpenGraph图片功能,注意开启后要渲染很长时间，不建议本地调试的时候开启
   favicon: [
-    // 留空以使用默认 favicon
-    // {
-    //   src: '/favicon/icon.png',    // 图标文件路径
-    //   theme: 'light',              // 可选，指定主题 'light' | 'dark'
-    //   sizes: '32x32',              // 可选，图标大小
-    // }
+    {
+      src: "/favicon/my-icon.png",
+      sizes: "64x64",
+    },
   ],
 
   // 字体配置

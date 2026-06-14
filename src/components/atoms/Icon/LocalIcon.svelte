@@ -22,6 +22,7 @@ const iconSetMap: Record<string, string> = {
 	"fa7-regular": "@iconify-json/fa7-regular",
 	"fa7-brands": "@iconify-json/fa7-brands",
 	"simple-icons": "@iconify-json/simple-icons",
+	prime: "@iconify-json/prime",
 };
 
 const packageName = $derived(iconSetMap[collection]);

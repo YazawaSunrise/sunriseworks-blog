@@ -152,10 +152,10 @@ export const navBarConfig: NavBarConfig = {
           icon: "fa7-brands:bilibili",
         },
         {
-          name: "Twitter",
+          name: "X（Twitter）",
           url: "https://x.com/Yazawa_Sunrise",
           external: true,
-          icon: "mdi:twitter",
+          icon: "prime:twitter",
         },
       ],
     },
