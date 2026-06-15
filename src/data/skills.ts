@@ -13,6 +13,7 @@ export interface Skill {
     | "tools"
     | "3D"
     | "creative"
+    | "创作"
     | "other";
   level: "beginner" | "intermediate" | "advanced" | "expert" | "菜鸡";
   experience: {
@@ -80,9 +81,9 @@ export const skillsData: Skill[] = [
   {
     id: "Adobe illustrator",
     name: "Adobe Illustrator",
-    description: "我是滚滚长江东逝水不是ai",
+    description: "滚滚长江东逝水（谁帮我画水贴）",
     icon: "simple-icons:adobeillustrator",
-    category: "creative",
+    category: "创作",
     level: "菜鸡",
     experience: { years: 0, months: 0 },
     color: "#eb6425",

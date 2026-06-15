@@ -33,7 +33,7 @@ export const siteConfig: SiteConfig = {
     // 显示模式："text-icon" 显示图标+文本，"logo" 仅显示Logo
     mode: "logo",
     // 顶栏标题文本
-    text: "三癞子的博客",
+    text: "三癞子的做模博客",
     // 顶栏标题图标路径，默认使用 public/assets/home/home.webp
     icon: "assets/home/1024.webp",
     // 网站Logo图片路径
@@ -147,10 +147,10 @@ export const siteConfig: SiteConfig = {
 
     homeText: {
       enable: true,
-      title: "三癞子的博客",
+      title: "三癞子的做模博客",
       switchable: true,
 
-      subtitle: ["我还在想这里写什么", "默认"],
+      subtitle: ["什么都干，什么都不行", "油漆工", "捏泥巴人"],
       typewriter: {
         enable: true, // 启用副标题打字机效果
 

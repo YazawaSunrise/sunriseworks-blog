@@ -1,49 +1,32 @@
+你好，这里是 Sunrise。
 
-This website is built with the **Astro** framework using the [Mizuki](https://github.com/LyraVoid/Mizuki) theme.
+一个喜欢做美少女GK、涂装的阿宅。
 
-::github{repo="LyraVoid/Mizuki"}
+最开始只是喜欢动画和游戏里的角色，后来慢慢开始接触模型制作。从涂装到原型制作，再到研究翻模、3D打印，不知不觉已经在这个坑里待了很多年。
 
-## 🌟 Theme Features
+目前在做自己喜欢的角色模型，并努力参加 Wonder Festival 等模型活动，也会涂一些其他dalao做的模型。我喜欢亲手把一个想法变成实体的过程：从草图、参考收集、建模、拆件、打印，到打磨、上色和最终展示，虽然样样不精，但也勉强算是个全能一体机。
 
-### 🎨 Design & User Experience
-- **Modern & Elegant Design** - Clean, minimalist interface with beautiful typography
-- **Fully Responsive** - Optimized for all devices from mobile to desktop
-- **Dark/Light Mode** - Automatic theme switching with smooth transitions
-- **Beautiful Typography** - Enhanced readability with JetBrains Mono font
-- **Smooth Animations** - Fluid page transitions and interactive elements
+除了模型制作之外，我也对创作工具本身很感兴趣。
 
-### 🔍 Content & Search
-- **Advanced Search** - Powered by [Pagefind](https://pagefind.app/) for fast, accurate results
-- **Enhanced Markdown** - Extended syntax with code highlighting and math support
-- **Interactive Table of Contents** - Auto-scroll navigation for long articles
-- **RSS Feed Generation** - Stay updated with automatic feed generation
-- **Reading Time Estimation** - Know how long articles take to read
-- **Post Categorization** - Organize content with tags and categories
+这里记录过我折腾的软件、工作流和开发项目。
 
+这个博客没有固定主题。
 
+你可能会看到：
 
-### 📱 Special Pages
-- **Anime Tracking Page** - Track your anime watching progress with ratings
-- **Friends Links Page** - Showcase friend websites with beautiful cards
-- **Diary/Moments Page** - Share life moments like social media posts
-- **Archive Page** - Organized timeline view of all posts
-- **About Page** - Customizable personal introduction (this page!)
+- 美少女GK制作记录
+- 涂装与材料研究
+- ZBrush相关内容
+- 3D打印与翻模经验
+- 创作工具开发日志
+- 同人活动与参展记录
+- 偶尔出现的技术折腾和胡思乱想
+- 以上都是chatgpt编的，不一定写喵
 
-### 🛠 Technical Features
-- **Enhanced Code Blocks** - Powered by [Expressive Code](https://expressive-code.com/)
-- **Math Support** - LaTeX rendering with KaTeX for mathematical expressions
-- **Image Optimization** - PhotoSwipe gallery with lazy loading
-- **SEO Optimized** - Built-in sitemap and meta tags for better search visibility
-- **Performance Optimized** - Fast loading with caching and optimization
-- **Comment System Ready** - Integration support for Twikoo comments
+互联网变化得很快，社交媒体上的内容总会被新的信息冲走。
 
-### 🎯 Advanced Markdown Features
-- **Callouts & Admonitions** - Beautiful info boxes with `> [!NOTE]`, `> [!TIP]`, `> [!WARNING]`
-- **Mathematical Equations** - Write LaTeX math with `$inline$` and `$$block$$` syntax
-- **GitHub Cards** - Embed repository cards with `::github{repo="user/repo"}`
-- **Syntax Highlighting** - Advanced code highlighting with line numbers
-- **Copy Code Buttons** - Easy code copying functionality
+所以我想保留这样一个地方，把一些值得留下的东西慢慢整理下来。
 
----
+如果这些内容恰好对你有所帮助，那就再好不过了。
 
-*Built with ❤️ using Astro and inspired by modern web design principles.*
+—— Sunrise

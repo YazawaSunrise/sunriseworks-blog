@@ -16,14 +16,14 @@ export const profileConfig: ProfileConfig = {
       url: "https://space.bilibili.com/32883655",
     },
     {
-      name: "Twitter",
-      icon: "mdi:twitter",
+      name: "X",
+      icon: "prime:twitter",
       url: "https://x.com/Yazawa_Sunrise",
     },
     {
       name: "GitHub",
       icon: "fa7-brands:github",
-      url: "https://github.com/matsuzaka-yuki",
+      url: "https://github.com/YazawaSunrise",
     },
   ],
 };

@@ -157,6 +157,12 @@ export const navBarConfig: NavBarConfig = {
           external: true,
           icon: "prime:twitter",
         },
+        {
+          name: "小红书",
+          url: "https://www.xiaohongshu.com/user/profile/6818edc0000000001b01f64b",
+          external: true,
+          icon: "simple-icons:xiaohongshu",
+        },
       ],
     },
 
@@ -219,11 +225,12 @@ export const navBarConfig: NavBarConfig = {
           url: "/skills/",
           icon: "material-symbols:psychology",
         },
-        {
-          name: "Timeline",
-          url: "/timeline/",
-          icon: "material-symbols:timeline",
-        },
+
+        //  {
+        //    name: "Timeline",
+        //    url: "/timeline/",
+        //    icon: "material-symbols:timeline",
+        //  },
       ],
     },
   ],
