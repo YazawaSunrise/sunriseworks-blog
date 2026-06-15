@@ -108,6 +108,13 @@ export async function compressFonts() {
 						const compressedSize =
 							fs.statSync(compressedFile).size;
 						totalCompressedSize += compressedSize;
+						const distOriginalFile = path.join(
+							distFontDir,
+							fontFile,
+						);
+						if (fs.existsSync(distOriginalFile)) {
+							fs.unlinkSync(distOriginalFile);
+						}
 						const reduction = (
 							(1 - compressedSize / originalSize) *
 							100
