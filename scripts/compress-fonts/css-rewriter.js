@@ -20,6 +20,52 @@ function getVersionedFontUrl(fontFile, ...candidatePaths) {
 	return `/assets/font/${fontFile}?v=${hash}`;
 }
 
+function getFileHash(filePath) {
+	return crypto
+		.createHash("sha256")
+		.update(fs.readFileSync(filePath))
+		.digest("hex")
+		.slice(0, 10);
+}
+
+function escapeRegExp(text) {
+	return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function updateCssAssetReferences(distDir, cssFiles) {
+	const htmlFiles = readFilesRecursively(distDir).filter((f) =>
+		f.endsWith(".html"),
+	);
+
+	if (htmlFiles.length === 0) return;
+
+	for (const htmlFile of htmlFiles) {
+		let htmlContent = fs.readFileSync(htmlFile, "utf-8");
+		const originalContent = htmlContent;
+
+		for (const cssFile of cssFiles) {
+			const cssUrl = `/${path
+				.relative(distDir, cssFile)
+				.replace(/\\/g, "/")}`;
+			const hash = getFileHash(cssFile);
+			const cssUrlPattern = new RegExp(
+				`${escapeRegExp(cssUrl)}(?:\\?v=[a-f0-9]+)?`,
+				"g",
+			);
+
+			htmlContent = htmlContent.replace(
+				cssUrlPattern,
+				`${cssUrl}?v=${hash}`,
+			);
+		}
+
+		if (htmlContent !== originalContent) {
+			fs.writeFileSync(htmlFile, htmlContent);
+			console.log(`鉁?Updated CSS asset references: ${htmlFile}`);
+		}
+	}
+}
+
 /**
  * 更新 dist 中的 CSS，将 ttf 引用替换为 woff2
  */
@@ -100,7 +146,10 @@ export async function updateCssFontReferences() {
 		}
 
 		// 处理未在 config 中配置但用户直接放在 font 目录的 woff2
-		if (!fs.existsSync(publicFontDir)) return;
+		if (!fs.existsSync(publicFontDir)) {
+			updateCssAssetReferences(distDir, cssFiles);
+			return;
+		}
 		const publicFiles = fs.readdirSync(publicFontDir);
 
 		for (const file of publicFiles) {
@@ -139,6 +188,8 @@ export async function updateCssFontReferences() {
 				}
 			}
 		}
+
+		updateCssAssetReferences(distDir, cssFiles);
 	} catch (error) {
 		console.error("⚠ CSS font reference update failed:", error.message);
 	}
