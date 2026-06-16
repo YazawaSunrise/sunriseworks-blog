@@ -1,7 +1,24 @@
 import fs from "node:fs";
+import crypto from "node:crypto";
 import path from "node:path";
 import { ROOT_DIR, readFilesRecursively } from "./utils.js";
 import { getFontConfigs } from "./config-parser.js";
+
+function getVersionedFontUrl(fontFile, ...candidatePaths) {
+	const fontPath = candidatePaths.find((candidatePath) =>
+		fs.existsSync(candidatePath),
+	);
+
+	if (!fontPath) return `/assets/font/${fontFile}`;
+
+	const hash = crypto
+		.createHash("sha256")
+		.update(fs.readFileSync(fontPath))
+		.digest("hex")
+		.slice(0, 10);
+
+	return `/assets/font/${fontFile}?v=${hash}`;
+}
 
 /**
  * 更新 dist 中的 CSS，将 ttf 引用替换为 woff2
@@ -38,6 +55,11 @@ export async function updateCssFontReferences() {
 				);
 				const hasWoff2 =
 					fs.existsSync(distWoff2) || fs.existsSync(publicWoff2);
+				const woff2Url = getVersionedFontUrl(
+					woff2File,
+					distWoff2,
+					publicWoff2,
+				);
 
 				if (!hasWoff2) {
 					console.log(
@@ -58,12 +80,12 @@ export async function updateCssFontReferences() {
 					if (fontConfig.enableCompress) {
 						cssContent = cssContent.replace(
 							ttfPattern,
-							`url("/assets/font/${woff2File}") format("woff2")`,
+							`url("${woff2Url}") format("woff2")`,
 						);
 					} else if (fs.existsSync(publicWoff2)) {
 						cssContent = cssContent.replace(
 							ttfPattern,
-							`url("/assets/font/${woff2File}") format("woff2"), url("/assets/font/${baseName}.ttf") format("truetype")`,
+							`url("${woff2Url}") format("woff2"), url("/assets/font/${baseName}.ttf") format("truetype")`,
 						);
 					}
 
@@ -85,6 +107,10 @@ export async function updateCssFontReferences() {
 			if (!file.endsWith(".woff2")) continue;
 			const baseName = path.basename(file, ".woff2");
 			const ttfFile = `${baseName}.ttf`;
+			const woff2Url = getVersionedFontUrl(
+				file,
+				path.join(publicFontDir, file),
+			);
 
 			// 检查是否已在配置中处理过
 			const isConfigured = fonts.some((fc) =>
@@ -104,7 +130,7 @@ export async function updateCssFontReferences() {
 				if (cssContent.match(ttfPattern)) {
 					cssContent = cssContent.replace(
 						ttfPattern,
-						`url("/assets/font/${file}") format("woff2"), url("/assets/font/${ttfFile}") format("truetype")`,
+						`url("${woff2Url}") format("woff2"), url("/assets/font/${ttfFile}") format("truetype")`,
 					);
 					fs.writeFileSync(cssFile, cssContent);
 					console.log(
